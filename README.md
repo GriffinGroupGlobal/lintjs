@@ -12,7 +12,7 @@ for *.js under a src and a test directory and lint them against the rule set. Fo
 the latest linter and rule set against the current working directory (and its children)...
 
 ```bash
-docker container run -v `pwd`:/home/node/src g3devdocker/lintjs:latest
+docker container run -v `pwd`:/home/node/src g3dev/lintjs:latest
 ```
 
 # Docker
@@ -22,4 +22,4 @@ Find the latest docker image [here][docker].
 [eslint]:https://eslint.org/
 [airbnbrules]:https://github.com/airbnb/javascript
 [node]:https://hub.docker.com/_/node/
-[docker]:https://hub.docker.com/r/g3devdocker/lintjs/
+[docker]:https://hub.docker.com/r/g3dev/lintjs/
