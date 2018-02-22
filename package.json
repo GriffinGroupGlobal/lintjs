@@ -23,8 +23,7 @@
     "rules": {
       "no-unsafe-regex/no-unsafe-regex": 2,
       "optimize-regex/optimize-regex": "warn",
-      "no-control-regex": "error",
-      "import/no-extraneous-dependencies": ["error", {"devDependencies": ["src/test/**/*.test.js", "src/test/**/*.spec.js"]}]
+      "no-control-regex": "error"
     }
   }
 }
