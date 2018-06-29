@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+set -e
+
 wd=`pwd`
 
 cd /home/node
