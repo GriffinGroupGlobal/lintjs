@@ -9,9 +9,9 @@ This is designed to be a general purpose utility that will also serve as a drone
 
 When calling via docker you must:
 - mount a volume
--- this volume may have a src directory where js files can be found
--- this volume may have a test directory where js file can be found
--- these two directories are where the linter will look for js files
+  - this volume may have a src directory where js files can be found
+  - this volume may have a test directory where js file can be found
+  - these two directories are where the linter will look for js files
 - specify a working dir which must be the volume you mounted
 
 ```bash
