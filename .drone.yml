@@ -4,6 +4,12 @@ pipeline:
     template: Dockerfile.j2
     data: build_data.yml
     outfile: Dockerfile
+  debug1:
+    image: g3dev/nodedev
+    commands:
+      - printenv
+      - pwd
+      - ls -la
   createTag:
     image: g3dev/jinja2cli
     template: tags.j2
