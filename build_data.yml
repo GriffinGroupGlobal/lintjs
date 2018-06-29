@@ -1,0 +1,6 @@
+maintainer: g3-dev@griffingroupglobal.com
+node_version: 9.11
+node_os: stretch
+npm_version: 6.1.0
+node_env: development
+lint_util_version: 0.1

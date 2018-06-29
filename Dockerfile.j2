@@ -1,0 +1,13 @@
+FROM g3dev/nodedev:{{ node_version }}-{{ node_os }}
+LABEL maintainer="{{ maintainer }}"
+
+WORKDIR /home/node
+
+COPY package.json .
+COPY runlint.sh .
+
+RUN npm install
+
+ENV NODE_ENV {{ node_env }}
+
+CMD ["/home/node/runlint.sh"]

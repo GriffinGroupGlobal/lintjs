@@ -1,0 +1,18 @@
+pipeline:
+  createDockerfile:
+    image: g3dev/jinja2cli
+    template: Dockerfile.j2
+    data: build_data.yml
+    outfile: Dockerfile
+  createTag:
+    image: g3dev/jinja2cli
+    template: tags.j2
+    data: build_data.yml
+    outfile: .tags
+  docker:
+    image: plugins/docker
+    repo: g3dev/lintjs
+    secrets: [ docker_username, docker_password ]
+    when:
+      branch: master
+      event: [ push, tag ]
