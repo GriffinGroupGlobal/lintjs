@@ -15,7 +15,7 @@ When calling via docker you must:
 - specify a working dir which must be the volume you mounted
 
 ```bash
-docker run --rm -v /Users/mattjenks/Development/Hydrogen/gplib_provingground:/mj --workdir /mj g3dev/lintjs:latest
+docker run --rm -v `pwd`:/mj --workdir /mj g3dev/lintjs:latest
 ```
 
 # Docker
