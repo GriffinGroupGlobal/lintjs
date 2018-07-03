@@ -24,7 +24,8 @@
       "no-unsafe-regex/no-unsafe-regex": 2,
       "optimize-regex/optimize-regex": "warn",
       "no-control-regex": "error",
-      "no-console":"error"
+      "no-console":"error",
+      "no-warning-comments": "error"
     }
   }
 }
