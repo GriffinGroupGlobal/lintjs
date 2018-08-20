@@ -30,7 +30,6 @@ pipeline:
     repo: g3dev/lintjs
     secrets: [ docker_username, docker_password ]
     when:
-      branch: master
       event: [ push, tag ]
   notify-email:
     image: drillster/drone-email
