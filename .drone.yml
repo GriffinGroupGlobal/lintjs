@@ -17,14 +17,15 @@ pipeline:
     data: build_data.yml
     outfile: .tags
     when:
-      exclude: [ master ]
+      branch:
+        exclude: [ master ]
   build-tags-master:
     image: g3dev/jinja2cli
     template: tags-master.j2
     data: build_data.yml
     outfile: .tags
     when:
-      branch: master
+      branch: [ master ]
   publish:
     image: plugins/docker
     repo: g3dev/lintjs
