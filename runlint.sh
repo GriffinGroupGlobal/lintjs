@@ -3,15 +3,25 @@
 set -e
 
 wd=`pwd`
-
-cd /home/node
+eslintcfg=/home/node/.eslintrc.json
+exitcode=0
 
 if [ -d $wd/src ]; then
-   npm run lint -- $wd/src/*.js
-   npm run lint -- $wd/src/**/*.js
+  if ! eslint -c $eslintcfg $wd/src/*.js ; then
+    exitcode=1
+  fi
+  if ! eslint -c $eslintcfg $wd/src/**/*.js ; then
+    exitcode=1
+  fi
 fi
 
 if [ -d $wd/test ]; then
-   npm run lint -- $wd/test/*.js
-   npm run lint -- $wd/test/**/*.js
+  if ! eslint -c $eslintcfg $wd/test/*.js ; then
+    exitcode=1
+  fi
+  if ! eslint -c $eslintcfg $wd/test/**/*.js ; then
+    exitcode=1
+  fi
 fi
+
+exit $exitcode
