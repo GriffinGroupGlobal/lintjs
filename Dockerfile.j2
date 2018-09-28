@@ -1,8 +1,4 @@
 FROM g3dev/nodedev:{{ node_version }}-{{ node_os }}
 LABEL maintainer="{{ maintainer }}"
 
-WORKDIR /home/node
-
-COPY runlint.sh .
-
-CMD ["/home/node/runlint.sh"]
+CMD ["/home/node/bin/runlint.sh"]
