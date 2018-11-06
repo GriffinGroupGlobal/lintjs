@@ -8,15 +8,20 @@
     "lint": "eslint"
   },
   "devDependencies": {
-    "eslint": "~5.0.1",
-    "eslint-config-airbnb-base": "^13.0.0",
-    "eslint-plugin-import": "^2.8.0",
+    "eslint": "^5.8.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-no-unsafe-regex": "^1.0.0",
-    "eslint-plugin-optimize-regex": "^1.1.5"
+    "eslint-plugin-optimize-regex": "^1.1.5",
+    "eslint-plugin-react": "^7.11.1"
   },
   "eslintConfig": {
-    "extends": "airbnb-base",
+    "extends": "airbnb",
     "plugins": [
+      "import",
+      "jsx-a11y",
+      "react",
       "no-unsafe-regex",
       "optimize-regex"
     ],
@@ -24,7 +29,7 @@
       "no-unsafe-regex/no-unsafe-regex": 2,
       "optimize-regex/optimize-regex": "warn",
       "no-control-regex": "error",
-      "no-console":"error",
+      "no-console": "error",
       "no-warning-comments": "error"
     }
   }

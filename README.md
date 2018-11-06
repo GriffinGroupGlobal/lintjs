@@ -3,7 +3,7 @@
 This is a g3 development utility for running a linter against all js files mounted to the image. The is the
 current [linter][eslint] and these are the [rules][airbnbrules] that may be implemented.
 
-This is designed to be a general purpose utility that will also serve as a drone plugin.
+This is designed to be a general purpose utility that will also serve as a drone plugin.  Also handles React and JSX linting.
 
 # Usage
 
