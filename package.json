@@ -8,6 +8,7 @@
     "lint": "eslint"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.1",
     "eslint": "^5.0.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.8.0",
@@ -18,6 +19,7 @@
   },
   "eslintConfig": {
     "extends": "airbnb",
+    "parser": "babel-eslint",
     "plugins": [
       "no-unsafe-regex",
       "optimize-regex"
@@ -28,8 +30,21 @@
       "no-control-regex": "error",
       "no-console": "error",
       "no-warning-comments": "error",
-      "react/destructuring-assignment": ["never", { "ignoreClassFields": false }],
-      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+      "react/destructuring-assignment": [
+        "never",
+        {
+          "ignoreClassFields": false
+        }
+      ],
+      "react/jsx-filename-extension": [
+        1,
+        {
+          "extensions": [
+            ".js",
+            ".jsx"
+          ]
+        }
+      ]
     }
   }
 }
