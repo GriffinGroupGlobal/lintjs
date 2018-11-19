@@ -1,4 +1,4 @@
-FROM g3dev/nodedev:{{ node_version }}-{{ node_os }}
+FROM g3dev/nodedev:{{ base_version }}
 LABEL maintainer="{{ maintainer }}"
 
 CMD ["/home/node/bin/runlint.sh"]

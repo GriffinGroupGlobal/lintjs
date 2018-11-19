@@ -1,5 +1,6 @@
 maintainer: g3-dev@griffingroupglobal.com
-node_version: 9.11
+node_version: 0.1.0-latest
+base_version: __BASEVER__
 node_os: stretch
 node_env: development
 branch: __BRANCH__
