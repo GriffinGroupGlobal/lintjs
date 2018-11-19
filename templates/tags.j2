@@ -1,0 +1,7 @@
+{% if branch == 'HEAD' -%}
+ {{ release_tag }}-{{ node_version }}-{{ commit_sha }}-{{ buildnum }},{{ release_tag }}
+{% elif branch == 'master' -%}
+  {{ release_tag }}-latest,dev-sha-{{ commit_sha }}-{{ buildnum }},{{ deploy_tag }}{{ release_tag }}-{{ buildnum }}
+{% else -%}
+  {{ branch }}-latest,{{ branch }}-{{ release_tag }}-{{ buildnum }},{{ branch }}-sha-{{ commit_sha }}
+{% endif -%}
