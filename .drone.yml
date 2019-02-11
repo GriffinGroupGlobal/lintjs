@@ -12,14 +12,28 @@ pipeline:
     - cat templates/build_data.yml.template | sed "s/__BRANCH__/HEAD/g" | sed "s/__SHA__/${DRONE_COMMIT_SHA}/g" | sed "s/__BUILDNUM__/${DRONE_BUILD_NUMBER}/g" | sed "s/__DEPLOY_TYPE__//g" |  sed "s/__TAG__/`./cuttags.sh`/g" | sed "s/__BASEVER__/${BASE_VERSION}/g" > build_data.yml
     when:
       event: [ tag ]
+      ref:
+        exclude:
+        - refs/heads/v*
+  setup-builddata-release-branch:
+    image: g3dev/nodedev:${BASE_VERSION}
+    commands:
+    - cat templates/build_data.yml.template | sed "s/__BRANCH__/${DRONE_COMMIT_BRANCH}/g" | sed "s/__SHA__/${DRONE_COMMIT_SHA}/g" | sed "s/__BUILDNUM__/${DRONE_BUILD_NUMBER}/g" | sed "s/__DEPLOY_TYPE__//g" |  sed "s/__TAG__/`git describe --abbrev=0 --tags | cut -d\- -f1`/g" | sed "s/__BASEVER__/${BASE_VERSION}/g" > build_data.yml
+    when:
+      branch:
+      - v*
   setup-builddata-alpha:
     image: g3dev/nodedev:${BASE_VERSION}
     commands:
     - cat templates/build_data.yml.template | sed "s/__BRANCH__/${DRONE_COMMIT_BRANCH}/g" | sed "s/__SHA__/${DRONE_COMMIT_SHA}/g" | sed "s/__BUILDNUM__/${DRONE_BUILD_NUMBER}/g" | sed "s/__DEPLOY_TYPE__/ALPHA-/g" |  sed "s/__TAG__/`git describe --abbrev=0 --tags | cut -d\- -f1`/g" | sed "s/__BASEVER__/${BASE_VERSION}/g" > build_data.yml
     when:
       event: [ pull_request, push, deployment ]
+      ref:
+        exclude:
+        - refs/heads/v*
   build-dockerfile:
     image: g3dev/jinja2cli
+    pull: true
     template: templates/Dockerfile.j2
     data: build_data.yml
     outfile: Dockerfile
@@ -69,5 +83,4 @@ pipeline:
 
 matrix:
   BASE_VERSION:
-    - 0.1.0-latest
-
+    - 0.3.0-latest
