@@ -60,7 +60,7 @@ pipeline:
       ({{ commit.branch }} - {{ commit.link }})
     when:
       branch: master
-      status: [ success, failure ]
+      status: [ failure ]
       event: [ push, tag, deployment ]
   notify-slack:
     image: plugins/slack-blame
@@ -78,7 +78,7 @@ pipeline:
       - "https://raw.githubusercontent.com/drone-plugins/drone-slack-blame/master/memes/kittens_fail.jpg"
     when:
       branch: master
-      status: [ success, failure ]
+      status: [ failure ]
       event: [ push, tag, deployment ]
 
 matrix:
